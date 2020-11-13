@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改判断题</title>
+    <style>
+    </style>
+    <link rel="stylesheet" href="../css/layer/default/layer.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-table-css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../css/choiseadd.css">
+</head>
+<body>
+<form action="#" method="post" id="myForm">
+    <input  type="hidden" name="id"><br/>
+    <div id="div">
+        请输入题目：<input type="text" id="titleName" name="titleName"/>
+        <hr width="3px" color="white">
+    </div>
+    <div id="div_radio">
+        请选择答案：正确：<input type="radio" id="solutionA" name="solutionA" value="1"/>
+        错误：<input type="radio" id="solution1" name="solutionA" value="0"/>
+        <hr width="3px" color="white">
+        正确答案：正确：<input type="radio" id="solutionT" name="solutionT" value="1"/>
+        错误：<input type="radio" id="solutionT1" name="solutionT" value="0"/>
+        <hr width="3px" color="white">
+
+    </div>
+    <div id="div_select">
+        请选择分类：<select id="examCategory" name="examCategory"></select><br/>
+        <hr width="3px" color="white">
+    </div>
+
+</form>
+<div id="div_button">
+    <button onclick="modifyd()">点击修改</button>
+</div>
+
+</body>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/layer/layer.js"></script>
+<script src="../js/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../js/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+<script src="../js/addtype.js"></script>
+<script src="../js/checkexam.js"></script>
+</html>

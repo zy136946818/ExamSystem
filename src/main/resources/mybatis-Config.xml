@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--命名规则 规定当前文件能书写的标签格式-->
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--引入-->
+    <properties resource="jdbc.properties"/>
+
+    <!--  log4j实现SQL日志输出  对应的配置 lo4j.properties 配置文件 -->
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+
+      <setting name="mapUnderscoreToCamelCase" value="true"/>
+
+
+    </settings>
+    <typeAliases>
+        <typeAlias type="com.neuedu.cn.pojo.Users" alias="Users"></typeAlias>
+        <typeAlias type="com.neuedu.cn.pojo.Papper" alias="Papper"></typeAlias>
+        <typeAlias type="com.neuedu.cn.pojo.Bank" alias="Bank"></typeAlias>
+        <typeAlias type="com.neuedu.cn.pojo.Decide" alias="Decide"></typeAlias>
+        <typeAlias type="com.neuedu.cn.pojo.Subject" alias="Subject"></typeAlias>
+        <typeAlias type="com.neuedu.cn.pojo.Category" alias="Category"></typeAlias>
+        <typeAlias type="com.neuedu.cn.pojo.ExamineeInfo" alias="ExamineeInfo"></typeAlias>
+
+    </typeAliases>
+
+
+    <environments default="local">
+        <environment id="local">
+            <transactionManager type="JDBC"></transactionManager>
+
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+
+    </environments>
+
+
+    <mappers>
+        <mapper resource="mappers/UsersMapper.xml"/>
+    </mappers>
+
+
+</configuration>

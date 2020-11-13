@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改选择题</title>
+    <style>
+    </style>
+    <link rel="stylesheet" href="../css/layer/default/layer.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-table-css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../css/choiseadd.css">
+</head>
+<body>
+<form action="#" method="post" id="myForm">
+    <input  type="hidden" name="id"><br/>
+    <div id="div">
+        请输入题目：<input type="text" id="titleName" name="titleName"/><br/>
+        <hr width="3px" color="white">
+        请输入选项A：<input type="text" id="solutionA" name="solutionA"/><br/>
+        <hr width="3px" color="white">
+        请输入选项B：<input type="text" id="solutionB" name="solutionB"/><br/>
+        <hr width="3px" color="white">
+        请输入选项C：<input type="text" id="solutionC" name="solutionC"/><br/>
+        <hr width="3px" color="white">
+        请输入选项D：<input type="text" id="solutionD" name="solutionD"/><br/>
+        <hr width="3px" color="white">
+    </div>
+    <div id="div_radio">
+        请选择正确答案：
+        A:<input type="radio"  name="solutionT" value="A"/>
+        B:<input type="radio"  name="solutionT" value="B"/>
+        C:<input type="radio"  name="solutionT" value="C"/>
+        D:<input type="radio"  name="solutionT" value="D"/>
+    </div>
+    <hr width="3px" color="white">
+    <div id="div_select">
+        请选择分类：<select id="examCategory" name="examCategory"></select><br/>
+        <hr width="3px" color="white">
+    </div>
+
+</form>
+<div id="div_button">
+    <button onclick="modify()">点击修改</button>
+</div>
+
+</body>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/layer/layer.js"></script>
+<script src="../js/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../js/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+<script src="../js/addtype.js"></script>
+<script src="../js/checkexam.js"></script>
+</html>

@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.cn.dao.UsersMapper">
+    <!-- 实现注册操作 -->
+    <insert id="usersRe" parameterType="Users">
+        insert into examination_users
+       (
+        id,
+        name,
+        password,
+        againpass,
+        telephone,
+        is_detele,
+        create_time
+
+        )values
+        (
+         #{id},
+         #{name},
+         #{password},
+         #{againpass},
+         #{telephone},
+         #{is_detele},
+         #{create_time}
+
+        )
+
+    </insert>
+    <!-- 查询手机号和密码，实现登录  -->
+ <select id="usersLogin" parameterType="Users" resultType="com.neuedu.cn.pojo.Users">
+    select telephone,password from examination_users where  telephone=#{telephone} and password=#{password}
+
+ </select>
+
+    <!-- 忘记密码  -->
+    <update id="passwordmodify" parameterType="Users">
+        update examination_users set password=#{password},againpass=#{againpass} where telephone=${telephone}
+    </update>
+
+
+
+    <!-- 添加试卷 -->
+    <insert id="testAdd" parameterType="com.neuedu.cn.pojo.Papper">
+        insert into examination_papper
+        (
+            id,
+            exam_title,
+            exam_status,
+            exam_category,
+            create_time
+
+        )
+        values
+        (
+            #{id},
+            #{examTitle},
+            #{examStatus},
+            #{examCategory},
+            #{createTime}
+        )
+
+    </insert>
+
+
+    <!-- 添加试卷分类 -->
+    <insert id="addCategory" parameterType="Category">
+        insert into examination_category
+        (
+            id,
+            exam_category,
+            is_detele,
+            create_time
+        )values
+        (
+            #{id},
+            #{examCategory},
+            #{isDetele},
+            #{createTime}
+        )
+
+    </insert>
+
+    <!--查询试卷分类-->
+    <select id="selCategory" parameterType="Category" resultType="com.neuedu.cn.pojo.Category">
+        select exam_category from examination_category group by exam_category
+
+    </select>
+
+    <!-- 查询试卷详情 -->
+ <select id="queryAll" parameterType="Papper" resultType="com.neuedu.cn.pojo.Papper">
+
+   select  id, exam_title,exam_status,exam_category,create_time from examination_papper  where is_delete=0 order by create_time desc
+
+ </select>
+
+
+
+
+    <!-- 删除试卷 -->
+
+
+<!--
+    <delete id="testDel" parameterType="Papper">
+        delete from examination_papper where id=#{id}
+    </delete>-->
+    <!-- 实现假删除  -->
+
+    <update id="testDel" parameterType="Papper">
+        update examination_papper set is_delete=1 where id=#{id}
+
+    </update>
+
+<!-- 开启考试  -->
+    <update id="startExam" parameterType="Papper">
+        update examination_papper set exam_status='已开启' where id=#{id}
+
+    </update>
+
+    <!-- 关闭考试  -->
+    <update id="closeExam" parameterType="Papper">
+        update examination_papper set exam_status='未开启',exam_code=null where id=#{id}
+
+    </update>
+
+<!-- 修改试卷 -->
+    <update id="testModify" parameterType="Papper">
+       update examination_papper set exam_title=#{examTitle},exam_category=#{examCategory}
+       where id=#{id}
+
+    </update>
+
+    <!--添加选择题 -->
+    <insert id="choiseAdd" parameterType="Bank">
+        insert into examination_bank
+        (
+            id,
+            title_name,
+            solution_a,
+            solution_b,
+            solution_c,
+            solution_d,
+            solution_t,
+            exam_category,
+            category_name,
+            is_detele,
+            create_time
+
+        )values
+        (
+            #{id},
+            #{titleName},
+            #{solutionA},
+            #{solutionB},
+            #{solutionC},
+            #{solutionD},
+            #{solutionT},
+            #{examCategory},
+            #{categoryName},
+            #{isDetele},
+            #{createTime}
+        )
+
+
+    </insert>
+
+    <!--添加判断题-->
+    <insert id="decideAdd" parameterType="Bank">
+        insert into examination_bank
+        (
+            id,
+            title_name,
+            solution_a,
+            solution_t,
+            exam_category,
+            category_name,
+            is_detele,
+            create_time
+        )values
+        (
+            #{id},
+            #{titleName},
+            #{solutionA},
+            #{solutionT},
+            #{examCategory},
+            #{categoryName},
+            #{isDetele},
+            #{createTime}
+        )
+
+
+    </insert>
+<!-- 查询选择题 -->
+    <select id="choiseExam" parameterType="map" resultType="com.neuedu.cn.pojo.Bank">
+        select id, title_name,solution_a,solution_b,solution_c,solution_d,solution_t,exam_category,category_name,create_time from examination_bank where is_detele=0 and category_name=#{categoryName}
+
+    </select>
+<!-- 查看判断题 -->
+    <select id="decideExam" parameterType="Bank" resultType="com.neuedu.cn.pojo.Bank">
+        select  id,title_name,solution_a,solution_t,exam_category,create_time from examination_bank where is_detele=0 and category_name=#{examCategory}
+
+    </select>
+    <!-- 添加试题到试卷 -->
+    <insert id="addExam" parameterType="Subject">
+        insert into examination_subject
+        (
+         id,
+         subject_name,
+         subject_id,
+         is_delete,
+         create_time
+
+        )values
+        (
+         #{id},
+         #{subjectName},
+         #{subjectId},
+         #{isDelete},
+         #{createTime}
+
+        )
+
+    </insert>
+<!--    &lt;!&ndash; 查询试卷详情 &ndash;&gt;-->
+<!--    <select id="checkTest" parameterType="Subject" resultType="com.neuedu.cn.pojo.Subject">-->
+<!--        select  exam_id ,exam_name,subject_name,create_time from examination_subject-->
+<!--        where exam_name=#{examName}-->
+
+<!--    </select>-->
+
+    <!-- 删除选择题 -->
+    <update id="delchoise" parameterType="Bank">
+        update examination_bank set is_detele=1 where id=#{id}
+    </update>
+
+    <!-- 修改试卷 -->
+    <update id="modifychoise" parameterType="Bank">
+        update examination_bank set title_name=#{titleName},
+        solution_a=#{solutionA},
+        solution_b=#{solutionB},
+        solution_c=#{solutionC},
+        solution_d=#{solutionD},
+        solution_t=#{solutionT},
+        exam_category=#{examCategory}
+        where id=#{id}
+    </update>
+
+    <!--删除判断题 -->
+    <update id="deldecide" parameterType="Decide">
+        update examination_bank set is_detele=1 where id=#{id}
+    </update>
+
+    <!-- 修改判断题 -->
+    <update id="modifydecide" parameterType="Bank">
+        update  examination_bank
+        set title_name=#{titleName},solution_a=#{solutionA},solution_t=#{solutionT},exam_category=#{examCategory}
+        where id=#{id}
+    </update>
+
+
+    <!-- 查询试卷试题 -->
+    <select id="fetchTestByPaperId" parameterType="Subject" resultType="Subject">
+        select * from examination_subject where exam_id=#{id} and is_delete=0
+    </select>
+
+    <!-- 查询试卷试题 -->
+    <select id="fetchTestByPaperId1" parameterType="Subject" resultType="Subject">
+        select * from examination_subject where exam_id=#{getexamid} and is_delete=0  order by exam_category desc  limit ${page},1
+    </select>
+
+    <!-- 查询试卷标题 -->
+    <select id="loadExamTitle" resultType="string">
+        select exam_title from examination_papper where id=#{id}
+    </select>
+
+    <!-- 查询试卷试题个数 -->
+    <select id="loadExamNum" resultType="int">
+        select count(*) from examination_subject where exam_id=#{getexamid}
+    </select>
+
+    <!--    将试题添加到试卷-->
+    <insert id="addTestOfExam" parameterType="Subject">
+        INSERT INTO examination_subject (
+            id,
+            exam_id,
+            subject_name,
+            subject_id,
+            solution_a,
+            solution_b,
+            solution_c,
+            solution_d,
+            solution_t,
+            exam_category,
+            category_name,
+            is_delete,
+            create_time
+        )
+        VALUES
+        (
+            #{id},
+            #{examId},
+            #{subjectName},
+            #{subjectId},
+            #{solutionA},
+            #{solutionB},
+            #{solutionC},
+            #{solutionD},
+            #{solutionT},
+            #{examCategory},
+            #{categoryName},
+            #{isDelete},
+            #{createTime}
+        )
+
+    </insert>
+
+    <!--  根据试题ID获取所有试题  -->
+    <select id="fetchTestByIds"  resultType="com.neuedu.cn.pojo.Bank">
+
+        select * from examination_bank where id in
+        <foreach collection="ids" item="sigleId" separator="," open="(" close=")" >
+            #{sigleId}
+        </foreach>
+    </select>
+
+
+    <!-- 实现试题添加后 修改is_add为1  -->
+    <update id="modifyTestAdded" parameterType="string">
+        update examination_bank set is_add=1 where id=#{examId}
+    </update>
+
+<!-- 题库试题  针对试卷添加时 查询应该带is_add条件  如果题库试题查询，应该是查询所有，不带is_add条件  -->
+    <select id="Test" parameterType="map" resultType="com.neuedu.cn.pojo.Bank">
+
+        select * from examination_bank
+        <where>
+            is_add=0
+            <if test="examCategory != null and examCategory !=''">
+                and exam_category=#{examCategory}
+            </if>
+            <if test="categoryName !=null and categoryName !=''">
+                and category_name =#{categoryName}
+            </if>
+
+        </where>
+    </select>
+
+    <!-- 通过id查询试题的id -->
+    <select id="subidOfBankById" parameterType="String" resultType="java.lang.String">
+        select subject_id  from examination_subject where id=#{id}
+    </select>
+
+    <!-- 通过Bankid修改Bank表is_add为0 -->
+    <update id="SubIdmodifyBankIsAdd" parameterType="Bank">
+        update examination_bank set is_add=0 where id=#{bankid}
+    </update>
+
+    <!-- 通过id删除试卷表记录 -->
+    <delete id="removeOfById" parameterType="Subject">
+        delete from examination_subject where id=#{id}
+    </delete>
+
+    <!--考生登录 -->
+    <insert id="studentLogin" parameterType="ExamineeInfo">
+        insert into examination_examineeinfo
+        (id,
+         name,
+         telephone,
+         exam_code,
+         is_over,
+         is_delete,
+         create_time
+         )
+        values (
+                #{id},
+                #{name},
+                #{telephone},
+                #{examCode},
+                #{isOver},
+                #{isDelete},
+                #{createTime}
+                )
+
+
+    </insert>
+
+    <!-- 将考试码添加到试卷表 -->
+    <update id="examCodeAddPaperByid" parameterType="Papper">
+        update examination_papper set exam_code=#{examCode} where id=#{id}
+    </update>
+
+    <!--判断试卷状态 -->
+    <select id="isExamCode" parameterType="Papper" resultType="java.lang.String">
+        select exam_status from examination_papper where exam_code=#{examCode}
+    </select>
+
+    <!-- 通过考试码获取试卷id-->
+    <select id="selectexamidByExamCode" parameterType="Papper" resultType="string">
+        select id from examination_papper where exam_code=#{examCode}
+    </select>
+</mapper>

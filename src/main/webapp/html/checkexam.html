@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看题库</title>
+    <link rel="stylesheet" href="../css/layer/modules/layer/default/layer.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-table-css/bootstrap-table.min.css">
+
+</head>
+<body>
+<form action="#" method="post" id="myForm">
+
+    添加试题：<select id="categoryName" name="categoryName">
+    <option value="1">单项选择题</option>
+    <option value="0">判断题</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    请选择您要查看的题型：<select id="categoryName1" name="categoryName1">
+    <option value="1">单项选择题</option>
+    <option value="0">判断题</option>
+    </select>
+</form>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button onclick="addtype()">点击添加</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button onclick="checkexam()">点击查询</button></br>
+<div>
+
+    <table border="1px" id="myTable"></table>
+
+</div>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/layer/layer.js"></script>
+<script src="../js/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../js/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+
+<script src="../js/checkexam.js"></script>
+</body>
+
+</html>

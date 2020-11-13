@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>考试入口</title>
+<link href="../css/studentLogin.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="../css/layer/default/layer.css">
+</head>
+
+<body>
+
+<div class="top">
+  <ul>
+    <li><a href="http://localhost:8080/ExamSystem/html/index.html" class="hover">系统主页</a></li>
+    <li><a href="#none">账号注册</a></li>
+    <li><a href="#none">合格成绩公示</a></li>
+    <li><a href="#none">报名流程</a></li>
+    <li><a href="#none">常见问题</a></li>
+    <li><a href="#none">返回首页</a></li>
+  </ul>
+</div>
+
+<div class="main">
+  <div class="denglu">
+    <div class="text" style="font-size:13px;"><font color="red"><strong>重要提示：</strong><br />
+      一、考生登录本系统可查看考试结果。<br />
+      二、考试过程中，考生不允许中途离开监控范围，如果系统检测不到有效面部特征，则本次考试按“违纪”处理。<br />
+    三、考试必须学生本人独立完成，不得有他人协助。考试过程中系统如果识别到监控范围内多于一人，则本次考试按“违纪”处理。</font></div>
+    <form action="http://localhost:8080/ExamSystem/html/examination.html" method="post" id="myForm">
+    <div class="dlk">
+      <table width="292" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td height="76" colspan="3"></td>
+        </tr>
+        <tr>
+          <td width="65" style="font-size:14px;">姓名</td>
+          <td colspan="2"><input name="name" id="name" type="text" class="dlinput" /></td>
+        </tr>
+        <tr>
+          <td height="16" colspan="3"></td>
+        </tr>
+        <tr>
+          <td>手机号</td>
+          <td colspan="2"><input name="telephone" id="telephone" type="text" class="dlinput" /></td>
+        </tr>
+        <tr>
+          <td height="16" colspan="3"></td>
+        </tr>
+        <tr>
+          <td>考试码</td>
+          <td width="100"><input name="examCode" id="examCode" type="text" class="dlinput" /></td>
+        </tr>
+        <tr>
+          <td height="16" colspan="3"></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td colspan="2"><span id="startKS" class="loginbtn" style="float: right; text-align:center">开启考试</span></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td colspan="2"><table width="224" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="24"><a href="#none" class="mm">没有考试码？</a></td>
+              <td align="right"><a href="#none" class="zc" style="font-size:13px;">立即网上注册</a></td>
+            </tr>
+          </table></td>
+        </tr>
+      </table>
+    </div>
+    </form>
+  </div>
+
+</div>
+
+<div class="footer">Copyright &copy; 2016 xxx.com All Rights Reserved　版权所有 Neuedu.school</div>
+
+</body>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/layer/layer.js"></script>
+<script src="../js/studentLogin.js"></script>
+</html>

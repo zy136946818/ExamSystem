@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>题库试题</title>
+    <link rel="stylesheet" href="../css/layer/default/layer.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-table-css/bootstrap-table.min.css">
+    <style>
+        #container{
+            width: 100%;
+            height: 100%;
+        }
+
+        #paperHead{
+            width: 100%;
+            height: 100%;
+        }
+
+        #paperContent{
+            width: 100%;
+            height: 100%;
+        }
+        .xzModel{
+            width: 100%;
+            height: 100%;
+            border: 3px solid lightgray;
+
+        }
+
+        .pdModel{
+            width: 100%;
+            height: 100%;
+            border: 3px solid lightgray;
+
+        }
+        .paperTitle{
+            width: 100%;
+            height: 100%;
+        }
+        .paperChoice{
+            width: 100%;
+            height: 100%;
+            margin-top: 20px;
+        }
+        .paperAnswer{
+            width: 100%;
+            height: 100%;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="paperHead">
+        <input type="text" hidden="hidden" id="subjectId"/>
+        <input type="text"  hidden="hidden" id="subjectTitle"/>
+        选择题库: <select name="examCategory" id="examCategory">
+
+    </select><br>
+        题型: <select name="categoryName" id="categoryName">
+        <option value="0">判断题</option>
+        <option value="1">选择题</option>
+    </select>
+<!--     <div>-->
+<!--         <button onclick="loadData()">点击查询</button>-->
+<!--     </div>-->
+      <button onclick="selectData()">查询</button>
+    </div>
+    <div id="paperContent">
+        <table border="1px" id="myTable"></table>
+    </div>
+    <button onclick="addTest2PaperFun()">确定</button>
+</div>
+</body>
+
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/layer/layer.js"></script>
+<script src="../js/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../js/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+<script src="../js/testofexam.js"></script>
+</html>

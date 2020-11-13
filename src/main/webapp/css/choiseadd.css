@@ -1,0 +1,45 @@
+div{
+
+    margin:0 auto; /* 居中 这个是必须的，，其它的属性非必须 */
+    width:500px; /* 给个宽度 顶到浏览器的两边就看不出居中效果了 */
+    text-align:left;
+}
+#div_select{
+    margin:0 auto; /* 居中 这个是必须的，，其它的属性非必须 */
+    width:500px; /* 给个宽度 顶到浏览器的两边就看不出居中效果了 */
+    text-align:left;
+    height: 30px;
+
+}
+#div_button{
+    margin:0 auto; /* 居中 这个是必须的，，其它的属性非必须 */
+    width:500px; /* 给个宽度 顶到浏览器的两边就看不出居中效果了 */
+    text-align:center;
+    background: #00FF00;
+    height: 30px;
+
+}
+
+
+#div input
+{
+    BORDER-BOTTOM:  1px solid;
+    BORDER-LEFT: 1px solid;
+    BORDER-RIGHT: 1px solid;
+    BORDER-TOP: 1px solid;
+    HEIGHT: 40px;
+    width: 500px;
+
+
+}
+
+hr{
+    height: 5px;
+    color: white;
+}
+
+#div_radio{
+
+    size: 10px;
+
+}
