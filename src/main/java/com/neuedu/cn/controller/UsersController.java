@@ -29,14 +29,9 @@ public class UsersController {
     @RequestMapping(value = "/UsersRegister", consumes = "application/json")
     @ResponseBody
     public Object UsersRegister(@RequestBody Users users)  {
-
         System.out.println("==========controller  users==========="+users);
         int usersRe=usersServiceimpl.usersRe(users);
         System.out.println("============usersre========"+usersRe);
-
-
-
-
         return  usersRe;
     }
 
@@ -50,19 +45,15 @@ public class UsersController {
         return usersServiceimpl.passwordmodify(users);
     }
 
-
-
     //用户登录
     @RequestMapping(value = "/UsersLogin", consumes = "application/json")
     @ResponseBody
     public Map<String,Object> UsersLogin(@RequestBody Users users)  {
-
         System.out.println("==========controller  users==========="+users);
         Map<String,Object> usersLogin=usersServiceimpl.usersLogin(users);
         System.out.println("============usersLogin========"+usersLogin);
         return  usersLogin;
     }
-
 
     //查询试卷
     @RequestMapping(value = "/SelTest", consumes = "application/json")
@@ -101,9 +92,6 @@ public class UsersController {
 
     }
 
-
-
-
     //添加试卷
     @RequestMapping(value = "/TestAdd", consumes = "application/json")
     @ResponseBody
@@ -119,10 +107,8 @@ public class UsersController {
             System.out.println("添加失败！");
             resultMap.put("code",0);
         }
-
         return resultMap;
     }
-
 
     /*
      * 删除功能
@@ -130,14 +116,11 @@ public class UsersController {
     @RequestMapping(value = "/testDel/{id}")
     @ResponseBody
     private Object testDel(@PathVariable("id") String id) throws IOException {
-
         System.out.println("========con  testDel=======");
         Papper papper=new Papper();
         papper.setId(id);
         Object result=usersServiceimpl.testDel(papper);
         System.out.println("result====="+ result);
-
-
         return  result;
 
 
@@ -175,7 +158,6 @@ public class UsersController {
 
     }
 
-
     /*
      * 修改试卷
      * */
@@ -186,7 +168,6 @@ public class UsersController {
         Object result=usersServiceimpl.testModify(papper);
         System.out.println("result====="+ result);
         return  result;
-
     }
 
     /*
@@ -199,7 +180,6 @@ public class UsersController {
         Object result=usersServiceimpl.choiseAdd(bank);
         System.out.println("result====="+ result);
         return  result;
-
     }
 
 
@@ -213,7 +193,6 @@ public class UsersController {
         Object result=usersServiceimpl.decideAdd(bank);
         System.out.println("result====="+ result);
         return  result;
-
     }
 
     //查询试卷选择题
@@ -277,11 +256,7 @@ public class UsersController {
         bank.setId(id);
         Object result=usersServiceimpl.delChoise(bank);
         System.out.println("result====="+ result);
-
-
         return  result;
-
-
     }
 
     /*
@@ -311,7 +286,6 @@ public class UsersController {
         System.out.println("result====="+ result);
         return  result;
 
-
     }
 
     /*
@@ -324,7 +298,6 @@ public class UsersController {
         Object result=usersServiceimpl.modifydecide(bank);
         System.out.println("result====="+ result);
         return  result;
-
     }
 
     //查询试卷
@@ -335,7 +308,6 @@ public class UsersController {
         List<Subject> subjects = usersServiceimpl.fetchTestByPaperId(id);
         return subjects;
     }
-
 
     //查询试卷
     @RequestMapping(value = "/fetchTestByPaperId1")
